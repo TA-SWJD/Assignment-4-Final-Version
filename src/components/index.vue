@@ -25,6 +25,7 @@ import { ref } from "vue";
 
 <style scoped>
 button {
+  margin-top: 90px;
   background-color: black;
   color: white;
   border-radius: 10px;
@@ -36,6 +37,7 @@ button:hover{
 }
 
 .select{
+  margin-top: 90px;
   float: right;
   height: 60px;
   width: 200px;

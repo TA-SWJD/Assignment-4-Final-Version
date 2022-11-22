@@ -1,5 +1,6 @@
 <template>
-    <div class="background" id="background">
+    <div class="background">
+      <img src="../assets/images/TMDB.png" alt="background" id="background">
     <div id="cover">
       <img src="https://hips.hearstapps.com/hmg-prod/images/lordoftherings-1636391090.jpg?crop=0.5xw:1xh;center,top&resize=640:*" alt="The Lord of the Rings" width="25%" id="p1">
       <img src="https://12ax7web.s3.amazonaws.com/accounts/1/products/imported/Star-Wars-Ships-t-shirt-Star-Wars-500x500.jpg" alt="Star Wars" width="25%" id="p2">
@@ -14,10 +15,12 @@ import { ref } from "vue";
 </script>
 
 <style scoped>
+#background {
+  width: 100%;
+  height: auto;
+}
+
 .background {
-  background:url(TMDB.png) no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
   height: 100%;
 }
 
@@ -31,7 +34,7 @@ import { ref } from "vue";
   width: 25%;
   height: 40%;
   position: absolute;
-  bottom: 0%;
+  bottom: 25%;
   left: 0%;
 }
 
@@ -39,7 +42,7 @@ import { ref } from "vue";
   width: 25%;
   height: 40%;
   position: absolute;
-  bottom: 0%;
+  bottom: 25%;
   left: 25%;
 }
 
@@ -47,7 +50,7 @@ import { ref } from "vue";
   width: 25%;
   height: 40%;
   position: absolute;
-  bottom: 0%;
+  bottom: 25%;
   left: 50%;
 }
 
@@ -55,7 +58,7 @@ import { ref } from "vue";
   width: 25%;
   height: 40%;
   position: absolute;
-  bottom: 0%;
+  bottom: 25%;
   left: 75%;
 }
 </style>
