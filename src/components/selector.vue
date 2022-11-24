@@ -2,52 +2,52 @@
 import { ref } from "vue";
 import axios from "axios";
 
-const data = ref("");
+const data = ref(null);
 const movieid = ref("1");
 
 const getMovie = async () => {
   movieid.value = (
-    await axios.get("http://api.themoviedb.rog/3/search/movie", {
+    await axios.get("http://api.themoviedb.org/3/search/movie", {
       params: {
         api_key: "d2efec38e7d74d12122672897f241cbf",
         include_adult: "false",
-        query: data.value,
+        query: data,
       },
     })
   ).data.results;
-};
-
-const getTrailer = async (movie) => {
-  movieid.value = (
-    await axios.get("https://api.themoviedb.org/3/search/movie", {
-      params: {
-        api_key: "d2efec38e7d74d12122672897f241cbf",
-        append_to_response: "videos",
-      }}).then((response) => {
-        const trailers = movieData.data.videos.results.filter((trailer) => trailer.type === "Trailer");
-      }));
+  console.log(movieid.value);
 }
+
+// const getTrailer = async () => {
+//     await axios.get("https://api.themoviedb.org/3/search/movie", {
+//       params: {
+//         api_key: "d2efec38e7d74d12122672897f241cbf",
+//         append_to_response: "videos",
+//       }}).then((response) => {
+//         const trailers = movieData.data.videos.results.filter((trailer) => trailer.type === "Trailer");
+//       });
+// }
 </script>
 
 <template>
 <div id="searchBox">
-    <form action="index.html" method="get">
-        <select name="select" id="movie" class="select">
+    <form action="index.html" method="get" @submit.prevent="getMovie">
+        <select name="select" id="movie" class="select" v-model = "data">
           <option value="None">None</option>
-          <option value="The Lord of the Rings">The Lord of the Rings</option>
-          <option value="Harry Potter">Harry Potter</option>
-          <option value="Resident Evil">Resident Evil</option>
-          <option value="Breaking Bad">Breaking Bad</option>
-          <option value="Spiderman">Spiderman</option>
-          <option value="Star Wars">Star Wars</option>
-          <option value="The Avengers">The Avengers</option>
-          <option value="The Godfather">The Godfather</option>
-          <option value="Terminator">Terminator</option>
-          <option value="Alien">Alien</option>
+          <option value="EL CAMINO">EL CAMINO</option>
+          <option value="Parasite">Parasite</option>
+          <option value="Green Book">Green Book</option>
+          <option value="The Shape of Water">The Shape of Water</option>
+          <option value="Moonlight">Moonlight</option>
+          <option value="The King's Speech">The King's Speech</option>
+          <option value="The Hurt Locker">The Hurt Locker</option>
+          <option value="Chicago">Chicago</option>
+          <option value="Argo">Argo</option>
+          <option value="American Beauty">American Beauty</option>
         </select>
-      <button class="button" type="submit" id="get">Get</button>
+      <button class="button" type="submit" id="get" @click="getMovie">Get</button>
     </form>
-    </div>
+</div>
     <div v-for="movie in movieid" v-if="movieid">
       <p class="movieData">
         <br> Title: {{movie.title}}
@@ -55,8 +55,6 @@ const getTrailer = async (movie) => {
         <br> Language: {{movie.origin_language}} &nbsp; Vote: {{movie.vote_count}} &nbsp; Vote Average: {{movie.vote_average}}
         <br> Violence: {{movie.adult}} &nbsp; Intensive Language: {{movie.adult}}
       </p>
-      <iframe src="'https://www.youtube.com/embed/' + trailers.at(0).key" frameborder="0"></iframe>
-      <img v-if="movie.poster_path" src="'http://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Poster" class="image">
     </div>
 </template>
 
@@ -74,8 +72,8 @@ button:hover{
 }
 
 .select{
-  margin-top: 90px;
-  float: right;
+  margin-top: 700px;
+  float: left;
   height: 60px;
   width: 200px;
   text-align: center;
@@ -86,7 +84,8 @@ button:hover{
 }
 
 .button{
-  float: right;
+  margin-top: 700px;
+  float: left;
   height: 60px;
   width: 60px;
   border-radius: 10px;
