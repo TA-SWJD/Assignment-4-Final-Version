@@ -91,4 +91,16 @@ button:hover{
   border-radius: 10px;
   font-size: 25px;
 }
+
+p {
+  margin-top: 100px;
+  color: white;
+  font-weight: bolder;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: larger;
+  background-color: gray;
+  border-radius: 20px;
+  width: 950px;
+  text-align: center;
+}
 </style>
