@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from "vue";
+import axios from "axios";
+
+
+</script>
+
 <template>
 <div id="searchBox">
     <form action="index.html" method="get">
@@ -18,10 +25,6 @@
     </form>
 </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-</script>
 
 <style scoped>
 button {

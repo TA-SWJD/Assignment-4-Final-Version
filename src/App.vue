@@ -1,9 +1,9 @@
 <template>
   <background />
-  <index />
+  <selector />
 </template>
 
 <script setup>
 import background from "./components/background.vue";
-import index from "./components/index.vue";
+import selector from "./components/selector.vue";
 </script>

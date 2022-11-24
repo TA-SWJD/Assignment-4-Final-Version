@@ -10,10 +10,6 @@
     </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-</script>
-
 <style scoped>
 #background {
   width: 100%;
